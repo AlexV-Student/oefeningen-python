@@ -1,0 +1,16 @@
+list_fruits = []
+
+i = 0;
+while i < 5:
+	i += 1
+	fruit = input("Geef een fruitsoort in: \n")
+	while fruit in list_fruits:
+		print("Dit fruit zit reeds in de lijst, geef een andere fruitsoort in")
+		fruit = input("Geef een fruitsoort in: \n")
+	list_fruits.append(fruit)
+
+list_fruits.sort(reverse=True)
+
+for fruit in list_fruits:
+	fruit = fruit.upper()
+	print(fruit, end = ' ')

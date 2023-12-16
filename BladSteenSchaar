@@ -1,0 +1,46 @@
+from random import randint
+
+player_wins = 0
+computer_wins = 0
+
+while computer_wins < 3 and player_wins < 3:
+	keuze_speler = input("Blad, steen of schaar? \n")
+	if keuze_speler == "blad" or "steen" or "schaar":
+		print("Je koos ",keuze_speler)
+	else:
+		print("Geef een geldige waarde in \n")
+		keuze_speler = input("Blad, steen of schaar? \n")
+
+	keuze_computer = randint(1,3)
+	if keuze_computer == 1:
+		keuze_computer = "blad"
+	elif keuze_computer == 2:
+		keuze_computer = "steen"
+	else:
+		keuze_computer = "schaar"
+
+	print("De computer koos ", keuze_computer)
+
+	if keuze_computer == "blad" and keuze_speler != "schaar" and keuze_speler != keuze_computer:
+		print("+ 1 punt voor de computer")
+		computer_wins += 1
+	elif keuze_computer == "steen" and keuze_speler != "blad" and keuze_speler != keuze_computer:
+		print("+ 1 punt voor de computer")
+		computer_wins += 1
+	elif keuze_computer == "schaar" and keuze_speler != "steen" and keuze_speler != keuze_computer:
+		print("+ 1 punt voor de computer")
+		computer_wins += 1
+	elif keuze_computer == keuze_speler:
+		print("Gelijk spel")
+	else:
+		print("+ 1 punt voor jou")
+		player_wins += 1
+
+
+print("player win count: ", player_wins)
+print("computer win count: ", computer_wins)
+
+if player_wins == 3 and computer_wins != 3:
+	print("Jij hebt gewonnen!")
+elif computer_wins == 3 and player_wins != 3:
+	print("De computer heeft gewonnen!")
